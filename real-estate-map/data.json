@@ -1,0 +1,32 @@
+[
+  {
+    "id": "property-001",
+    "address": "Tripoli, Lebanon",
+    "coordinates": "33°54'37.3\"N 35°37'06.9\"E",
+    "lat": 33.91036,
+    "lng": 35.61858,
+    "price": 150000,
+    "pricePerM": 500,
+    "dealCategory": "For Sale",
+    "leadSource": "Website",
+    "seller": "Ahmad Khalil",
+    "phoneNumber": "+961 71 234 567",
+    "notes": "2-floor house with rooftop.",
+    "assetType": "Residential",
+    "photos": "photo1.jpg, photo2.jpg"
+  },
+  {
+    "id": "property-002",
+    "address": "Beirut Downtown",
+    "lat": 33.8955,
+    "lng": 35.4807,
+    "price": 300000,
+    "pricePerM": 1000,
+    "dealCategory": "For Rent",
+    "leadSource": "Facebook",
+    "seller": "Karim",
+    "phoneNumber": "+961 70 222 333",
+    "notes": "Modern apartment near Zaitunay Bay.",
+    "assetType": "Apartment"
+  }
+]

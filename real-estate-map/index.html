@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lebanon Real Estate Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="config.js"></script>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- Controls -->
+  <div id="controls">
+    <div id="searchContainer">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search properties..."
+      />
+      <select id="searchFilter">
+        <option value="all">All Fields</option>
+        <option value="address">Address</option>
+        <option value="seller">Seller</option>
+        <option value="price">Price</option>
+        <option value="pricePerM">Price per M²</option>
+        <option value="lot">Lot #</option>
+        <option value="notes">Notes</option>
+        <option value="id">ID</option>
+      </select>
+    </div>
+
+    <select id="sourceFilter">
+      <option value="all">All sources</option>
+    </select>
+
+    <select id="priceFilter">
+      <option value="all">Any price</option>
+      <option value="0-99">0 – 99K</option>
+      <option value="100-199">100K – 199K</option>
+      <option value="200-499">200K – 499K</option>
+      <option value="500-999">500K – 999K</option>
+      <option value="1000+">1M+</option>
+    </select>
+
+    <div id="mapTypes" class="btn-group">
+      <button data-type="roadmap" class="active">Map</button>
+      <button data-type="satellite">Satellite</button>
+      <button data-type="hybrid">Hybrid</button>
+      <button data-type="terrain">Terrain</button>
+    </div>
+
+    <button id="favToggle">Favorites</button>
+
+    <label class="switch">
+      <input type="checkbox" id="darkToggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <!-- Favorites panel -->
+  <div id="favPanel" class="panel hidden">
+    <h3>Favorites</h3>
+    <ul id="favList"></ul>
+  </div>
+
+  <!-- Sidebar with property info -->
+  <div id="infoSidebar" class="panel hidden">
+    <h3>Property Details</h3>
+    <div id="infoContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

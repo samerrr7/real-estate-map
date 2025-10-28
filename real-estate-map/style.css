@@ -1,0 +1,243 @@
+html, body, #map {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+:root {
+  --bg: #f4f5f7;
+  --text: #1f2d3d;
+  --panel-bg: rgba(255, 255, 255, 0.9);
+  --panel-border: #d5d8dd;
+  --accent: #0077ff;
+  --secondary: #f5f6f7;
+}
+
+body.dark {
+  --bg: #131417;
+  --text: #e0e3e9;
+  --panel-bg: rgba(28, 29, 33, 0.96);
+  --panel-border: #44495a;
+  --accent: #339af0;
+  --secondary: #23252d;
+}
+
+/* --- CONTROLS --- */
+#controls {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 8px 12px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+#controls input,
+#controls select {
+  padding: 7px 10px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--secondary);
+  color: var(--text);
+  outline: none;
+}
+
+#controls select {
+  cursor: pointer;
+}
+
+#searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#searchInput {
+  flex: 1;
+  min-width: 160px;
+}
+
+#searchFilter {
+  min-width: 120px;
+}
+
+/* --- MAP TYPE BUTTONS --- */
+.btn-group {
+  display: flex;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.btn-group button {
+  background: var(--secondary);
+  border: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.2s;
+}
+
+.btn-group button.active {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: 1px solid var(--panel-border);
+}
+
+/* --- FAVORITES TOGGLE --- */
+#favToggle {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+#favToggle:hover {
+  opacity: 0.9;
+}
+
+/* --- DARK MODE SWITCH --- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 28px;
+}
+.switch input {
+  display: none;
+}
+.slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: #ccc;
+  transition: background 0.3s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+input:checked + .slider {
+  background: var(--accent);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* --- PANELS --- */
+.panel {
+  position: absolute;
+  top: 70px;
+  right: 12px;
+  width: 280px;
+  max-height: 75%;
+  overflow-y: auto;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: all 0.2s;
+}
+
+.panel.hidden {
+  display: none;
+}
+
+.panel h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+#favList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#favList li {
+  cursor: pointer;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--panel-border);
+  color: var(--text);
+}
+
+#favList li:hover {
+  text-decoration: underline;
+}
+
+/* --- INFO SIDEBAR --- */
+#infoSidebar {
+  left: 12px;
+  right: auto;
+  width: 320px;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  #controls {
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 10px;
+    width: 90%;
+  }
+
+  #controls input,
+  #controls select,
+  #controls .btn-group {
+    width: 100%;
+  }
+
+  #infoSidebar {
+    width: 92%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    bottom: 10px;
+    max-height: 65vh;
+    overflow-y: auto;
+    border-radius: 14px;
+    font-size: 14px;
+  }
+
+  #infoSidebar h3 {
+    text-align: center;
+  }
+}
