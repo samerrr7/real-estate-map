@@ -1,0 +1,3 @@
+# Ignore system and VS Code files
+desktop.ini
+.vscode/
